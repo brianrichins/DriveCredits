@@ -262,25 +262,24 @@ aside {
 footer {
   width: 100%;
   max-width: 100%;
-  --margin: 0 auto;
   text-align: center;
-}
-img {
-  opacity: 0;
-  transform: translateY(100vh);
-  transform: translateY(-50%) translateX(-25%) scale(1.6) s;
   animation: var(--anim-tilt-location-center);
   animation-duration: var(--anim-tilt-duration);
   animation-delay: var(--anim-tilt-delay);
 }
+#ship {
+  opacity: 0;
+  animation: ship-jump ease-in;
+  animation-duration: 20s;
+  animation-delay: var(--anim-tilt-delay);
+}
 
 @keyframes tilt-centered-location {
-  0% {
-    opacity: 1;
-    transform: translateY(100vh);
-  }
-  100% {
-    opacity: inherit;
-    transform: translateY(0);
-  }
+  0% { opacity: 1; transform: translateY(100vh); }
+  100% { opacity: inherit; transform: translateY(0); }
+}
+@keyframes ship-jump {
+  0% { opacity: 1; transform: translateX(10%) scale(0.5); }
+  60% { opacity: 1; transform: translateX(10%) scale(0.5); }
+  100% { opacity: 1; transform: translateX(-150%) scale(8) }
 }
