@@ -38,6 +38,22 @@
   font-style: normal;
 }
 
+:root{
+  --col-txt-intro: #4bd5ee;
+  --col-txt-shadow: #f9fefa;
+  --col-dark-blue: #001823;
+
+  --anim-intro: 5s linear 2s 1 normal forwards running intro;
+  --anim-logo: logo 12s 8.5s 1 ease-out forwards;
+  --anim-tilt-bg: tilt-bg 8s 96s 1 linear forwards;
+
+  --anim-crawl: crawl-scroll 74s 18s 1 linear forwards;
+  --anim-txt-episode: crawl-fade 60s 1 linear;
+
+  --anim-tilt-location-bottom: tilt-bottom-location 8s 96s 1 ease-out forwards;
+  --anim-tilt-location-center: tilt-centered-location 8s 96s 1 ease-out forwards;
+}
+
 * {
   border: none;
   box-sizing: border-box;
@@ -53,9 +69,8 @@ html {
   width: 100%;
 }
 body {
-  background-color: #001823;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("stars.jpg");
+  background-color: var(--col-dark-blue);
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5)), url("stars.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center 0;
@@ -64,90 +79,19 @@ body {
   overflow: hidden;
   height: 100%;
   width: 100%;
-  -webkit-animation: tilt-bg 8s 96s 1 ease-out forwards; /* Safari 4+ */
-  -moz-animation: tilt-bg 8s 96s 1 ease-out forwards; /* Fx 5+ */
-  -o-animation: tilt-bg 8s 96s 1 ease-out forwards; /* Opera 12+ */
-  animation: tilt-bg 8s 96s 1 ease-out forwards; /* IE 10+, Fx 29+ */
-}
-@-webkit-keyframes tilt-bg {
-  0% {
-    background-position: center 0;
-  }
-  100% {
-    background-position: center -40vh;
-  } /* authentic */
-}
-@-moz-keyframes tilt-bg {
-  0% {
-    background-position: center 0;
-  }
-  100% {
-    background-position: center -40vh;
-  } /* authentic */
-}
-@-o-keyframes tilt-bg {
-  0% {
-    background-position: center 0;
-  }
-  100% {
-    background-position: center -40vh;
-  } /* authentic */
+  animation: var(--anim-tilt-bg);
 }
 @keyframes tilt-bg {
-  0% {
-    background-position: center 0;
-  }
-  100% {
-    background-position: center -40vh;
-  } /* authentic */
+  0%   { background-position: center 0; }
+  100% { background-position: center -40vh; }
 }
 
 main {
   position: relative;
 }
-#logo {
-  font-family: "Star Wars";
-  color: #001823;
-  text-align: center;
-  font-size: 10em;
-  text-shadow: -5px -5px 0 #f9fefa, -5px -4px 0 #f9fefa, -5px -3px 0 #f9fefa,
-    -5px -2px 0 #f9fefa, -5px -1px 0 #f9fefa, -5px 0 0 #f9fefa,
-    -5px 1px 0 #f9fefa, -5px 2px 0 #f9fefa, -5px 3px 0 #f9fefa,
-    -5px 4px 0 #f9fefa, -5px 5px 0 #f9fefa, -4px -5px 0 #f9fefa,
-    -4px -4px 0 #f9fefa, -4px -3px 0 #f9fefa, -4px -2px 0 #f9fefa,
-    -4px -1px 0 #f9fefa, -4px 0 0 #f9fefa, -4px 1px 0 #f9fefa,
-    -4px 2px 0 #f9fefa, -4px 3px 0 #f9fefa, -4px 4px 0 #f9fefa,
-    -4px 5px 0 #f9fefa, -3px -5px 0 #f9fefa, -3px -4px 0 #f9fefa,
-    -3px -3px 0 #f9fefa, -3px -2px 0 #f9fefa, -3px -1px 0 #f9fefa,
-    -3px 0 0 #f9fefa, -3px 1px 0 #f9fefa, -3px 2px 0 #f9fefa, -3px 3px 0 #f9fefa,
-    -3px 4px 0 #f9fefa, -3px 5px 0 #f9fefa, -2px -5px 0 #f9fefa,
-    -2px -4px 0 #f9fefa, -2px -3px 0 #f9fefa, -2px -2px 0 #f9fefa,
-    -2px -1px 0 #f9fefa, -2px 0 0 #f9fefa, -2px 1px 0 #f9fefa,
-    -2px 2px 0 #f9fefa, -2px 3px 0 #f9fefa, -2px 4px 0 #f9fefa,
-    -2px 5px 0 #f9fefa, -1px -5px 0 #f9fefa, -1px -4px 0 #f9fefa,
-    -1px -3px 0 #f9fefa, -1px -2px 0 #f9fefa, -1px -1px 0 #f9fefa,
-    -1px 0 0 #f9fefa, -1px 1px 0 #f9fefa, -1px 2px 0 #f9fefa, -1px 3px 0 #f9fefa,
-    -1px 4px 0 #f9fefa, -1px 5px 0 #f9fefa, 0 -5px 0 #f9fefa, 0 -4px 0 #f9fefa,
-    0 -3px 0 #f9fefa, 0 -2px 0 #f9fefa, 0 -1px 0 #f9fefa, 0 0 0 #f9fefa,
-    0 1px 0 #f9fefa, 0 2px 0 #f9fefa, 0 3px 0 #f9fefa, 0 4px 0 #f9fefa,
-    0 5px 0 #f9fefa, 1px -5px 0 #f9fefa, 1px -4px 0 #f9fefa, 1px -3px 0 #f9fefa,
-    1px -2px 0 #f9fefa, 1px -1px 0 #f9fefa, 1px 0 0 #f9fefa, 1px 1px 0 #f9fefa,
-    1px 2px 0 #f9fefa, 1px 3px 0 #f9fefa, 1px 4px 0 #f9fefa, 1px 5px 0 #f9fefa,
-    2px -5px 0 #f9fefa, 2px -4px 0 #f9fefa, 2px -3px 0 #f9fefa,
-    2px -2px 0 #f9fefa, 2px -1px 0 #f9fefa, 2px 0 0 #f9fefa, 2px 1px 0 #f9fefa,
-    2px 2px 0 #f9fefa, 2px 3px 0 #f9fefa, 2px 4px 0 #f9fefa, 2px 5px 0 #f9fefa,
-    3px -5px 0 #f9fefa, 3px -4px 0 #f9fefa, 3px -3px 0 #f9fefa,
-    3px -2px 0 #f9fefa, 3px -1px 0 #f9fefa, 3px 0 0 #f9fefa, 3px 1px 0 #f9fefa,
-    3px 2px 0 #f9fefa, 3px 3px 0 #f9fefa, 3px 4px 0 #f9fefa, 3px 5px 0 #f9fefa,
-    4px -5px 0 #f9fefa, 4px -4px 0 #f9fefa, 4px -3px 0 #f9fefa,
-    4px -2px 0 #f9fefa, 4px -1px 0 #f9fefa, 4px 0 0 #f9fefa, 4px 1px 0 #f9fefa,
-    4px 2px 0 #f9fefa, 4px 3px 0 #f9fefa, 4px 4px 0 #f9fefa, 4px 5px 0 #f9fefa,
-    5px -5px 0 #f9fefa, 5px -4px 0 #f9fefa, 5px -3px 0 #f9fefa,
-    5px -2px 0 #f9fefa, 5px -1px 0 #f9fefa, 5px 0 0 #f9fefa, 5px 1px 0 #f9fefa,
-    5px 2px 0 #f9fefa, 5px 3px 0 #f9fefa, 5px 4px 0 #f9fefa, 5px 5px 0 #f9fefa;
-}
+
 header,
-section,
+#logo,
 footer {
   position: fixed;
   top: 50%;
@@ -156,10 +100,10 @@ footer {
   width: 100%;
   max-width: 100%;
 }
-/* ALTA.... 0s-5s */
+
 h1 {
-  color: #4bd5ee;
-  font-family: "Franklin Gothic FS Book", sans-serif; /* authentic */
+  color: var(--col-txt-intro);
+  font-family: "Franklin Gothic FS Book", sans-serif;
   font-size: 4em;
   line-height: 1.5em;
   letter-spacing: 0.08em;
@@ -171,175 +115,71 @@ h1 {
   min-width: 15.6em;
   width: 80%;
   margin: 0 auto;
+  animation: var(--anim-intro);
+}
 
-  -webkit-animation: intro 5s 2s 1 linear forwards; /* Safari 4+ */
-  -moz-animation: intro 5s 2s 1 linear forwards; /* Fx 5+ */
-  -o-animation: intro 5s 2s 1 linear forwards; /* Opera 12+ */
-  animation: intro 5s 2s 1 linear forwards; /* IE 10+, Fx 29+ */
-}
-@-webkit-keyframes intro {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  13%,
-  87% {
-    opacity: inherit;
-  } /* authentic */
-}
-@-moz-keyframes intro {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  13%,
-  87% {
-    opacity: inherit;
-  } /* authentic */
-}
-@-o-keyframes intro {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  13%,
-  87% {
-    opacity: inherit;
-  } /* authentic */
-}
 @keyframes intro {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  13%,
-  87% {
-    opacity: inherit;
-  } /* authentic */
+  0%, 100% { opacity: 0; }
+  13%, 87% { opacity: inherit; }
 }
+
+
 /* SW 7s-19s */
-h2 {
+#logo {
+  font-family: "Star Wars";
+  color: var(--col-dark-blue);
+  text-align: center;
+  font-size: 10em;
+  text-shadow: 2px 2px 0 var(--col-txt-shadow), -2px 2px 0 var(--col-txt-shadow), 2px -2px 0 var(--col-txt-shadow), -2px -2px 0 var(--col-txt-shadow),
+                 3px 0px 0 var(--col-txt-shadow), -3px 0 0 var(--col-txt-shadow), 0 3px 0 var(--col-txt-shadow), 0 -3px 0 var(--col-txt-shadow);
+  position: absolute;
   opacity: 0;
-  min-height: 100%;
-  height: 100%;
-  max-height: 100%;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-
-  -webkit-animation: logo 12s 9s 1 ease-out forwards; /* Safari 4+ */
-  -moz-animation: logo 12s 9s 1 ease-out forwards; /* Fx 5+ */
-  -o-animation: logo 12s 9s 1 ease-out forwards; /* Opera 12+ */
-  animation: logo 12s 9s 1 ease-out forwards; /* IE 10+, Fx 29+ */
+  animation: var(--anim-logo);
 }
 
-@-webkit-keyframes logo {
-  0% {
-    opacity: inherit;
-  }
-  90% {
-    opacity: inherit;
-  }
-  100% {
-    opacity: 0;
-    width: 5%;
-  } /* authentic */
+h2 {
+  line-height: .9em;
+  letter-spacing: 0.1ch;
 }
-@-moz-keyframes logo {
-  0% {
-    opacity: inherit;
-  }
-  90% {
-    opacity: inherit;
-  }
-  100% {
-    opacity: 0;
-    width: 5%;
-  } /* authentic */
-}
-@-o-keyframes logo {
-  0% {
-    opacity: inherit;
-  }
-  90% {
-    opacity: inherit;
-  }
-  100% {
-    opacity: 0;
-    width: 5%;
-  } /* authentic */
-}
+
 @keyframes logo {
   0% {
-    opacity: inherit;
+    transform: translateY(-50%) scale(20);
+    opacity: 1;
   }
   90% {
-    opacity: inherit;
+    transform: translateY(-50%) scale(.1);
+    opacity: 1;
   }
   100% {
     opacity: 0;
-    width: 5%;
-  } /* authentic */
+    transform: translateY(-50%) scale(.01);
+  }
 }
 
-/* Ep 17s-18s / 18s-19s / Ttl 19s-21s / 21s-23s / 1P 23s-32s / 32s-34s / 2P 34s-46s / 46s- 49s / 3P 49s - 62s / 62s- 84s */
+/* Ep 17s-18s / 18s-19s / Ttl 19s-21s / 21s-22s / 1P 23s-32s / 32s-34s / 2P 34s-46s / 46s- 49s / 3P 49s - 62s / 62s- 84s */
 article#crawl {
-  min-width: 130em;
-  width: 130em;
-  max-width: 130em;
+  width: 80%;
   margin: 0 auto;
-
   transform-origin: 50% 100vh;
   transform: perspective(100vh) rotateX(50deg);
 }
 ul {
   position: fixed;
   transform: translateY(30%);
-
-  -webkit-animation: crawl-scroll 74s 18s 1 linear forwards; /* Safari 4+ */
-  -moz-animation: crawl-scroll 74s 18s 1 linear forwards; /* Fx 5+ */
-  -o-animation: crawl-scroll 74s 18s 1 linear forwards; /* Opera 12+ */
-  animation: crawl-scroll 74s 18s 1 linear forwards; /* IE 10+, Fx 29+ */
+  animation: var(--anim-crawl);
 }
 li {
-  color: white; /* authentic */
-
-  font-family: "Franklin Gothic FS Demi", sans-serif; /* authentic */
+  color: var(--col-txt-shadow);
+  font-family: "Franklin Gothic FS Demi", sans-serif;
   font-size: 10em;
   line-height: 1.3em;
   margin-bottom: 1.1em;
 }
-@-webkit-keyframes crawl-scroll {
-  0% {
-    transform: translateY(30%);
-  }
-  100% {
-    transform: translateY(-150%);
-  } /* authentic */
-}
-@-moz-keyframes crawl-scroll {
-  0% {
-    transform: translateY(30%);
-  }
-  100% {
-    transform: translateY(-150%);
-  } /* authentic */
-}
-@-o-keyframes crawl-scroll {
-  0% {
-    transform: translateY(30%);
-  }
-  100% {
-    transform: translateY(-150%);
-  } /* authentic */
-}
+
 @keyframes crawl-scroll {
-  0% {
-    transform: translateY(30%);
-  }
-  100% {
-    transform: translateY(-150%);
-  } /* authentic */
+  0%   { transform: translateY(30%); }
+  100% { transform: translateY(-150%); }
 }
 
 li#episode,
@@ -348,7 +188,7 @@ li#title {
   text-align: center;
 }
 li#title {
-  font-family: "Franklin Gothic FS Condensed", sans-serif; /* authentic */
+  font-family: "Franklin Gothic FS Condensed", sans-serif;
   text-transform: uppercase;
 }
 li#aurek,
@@ -360,83 +200,34 @@ li#cresh {
 }
 
 li#episode {
-  opacity: 0;
-  -webkit-animation: crawl-fade 60s 18s 1 linear forwards; /* Safari 4+ */
-  -moz-animation: crawl-fade 60s 18s 1 linear forwards; /* Fx 5+ */
-  -o-animation: crawl-fade 60s 18s 1 linear forwards; /* Opera 12+ */
-  animation: crawl-fade 60s 18s 1 linear forwards; /* IE 10+, Fx 29+ */
+  animation: var(--anim-txt-episode);
+  animation-delay: 18s;
 }
 li#title {
   opacity: 0;
-  -webkit-animation: crawl-fade 60s 20s 1 linear forwards; /* Safari 4+ */
-  -moz-animation: crawl-fade 60s 20s 1 linear forwards; /* Fx 5+ */
-  -o-animation: crawl-fade 60s 20s 1 linear forwards; /* Opera 12+ */
-  animation: crawl-fade 60s 20s 1 linear forwards; /* IE 10+, Fx 29+ */
+  animation: var(--anim-txt-episode);
+  animation-delay: 20s;
 }
 li#aurek {
   opacity: 0;
-  -webkit-animation: crawl-fade 60s 24s 1 linear forwards; /* Safari 4+ */
-  -moz-animation: crawl-fade 60s 24s 1 linear forwards; /* Fx 5+ */
-  -o-animation: crawl-fade 60s 24s 1 linear forwards; /* Opera 12+ */
-  animation: crawl-fade 60s 24s 1 linear forwards; /* IE 10+, Fx 29+ */
+  animation: var(--anim-txt-episode);
+  animation-delay: 24s;
 }
 li#besh {
   opacity: 0;
-  -webkit-animation: crawl-fade 60s 32s 1 linear forwards; /* Safari 4+ */
-  -moz-animation: crawl-fade 60s 32s 1 linear forwards; /* Fx 5+ */
-  -o-animation: crawl-fade 60s 32s 1 linear forwards; /* Opera 12+ */
-  animation: crawl-fade 60s 32s 1 linear forwards; /* IE 10+, Fx 29+ */
+  animation: var(--anim-txt-episode);
+  animation-delay: 32s;
 }
 li#cresh {
   opacity: 0;
-  -webkit-animation: crawl-fade 48s 44s 1 linear forwards; /* Safari 4+ */
-  -moz-animation: crawl-fade 48s 44s 1 linear forwards; /* Fx 5+ */
-  -o-animation: crawl-fade 48s 44s 1 linear forwards; /* Opera 12+ */
-  animation: crawl-fade 48s 44s 1 linear forwards; /* IE 10+, Fx 29+ */
+  animation: var(--anim-txt-episode);
+  animation-delay: 44s;
 }
-@-webkit-keyframes crawl-fade {
-  0% {
-    opacity: inherit;
-  }
-  84% {
-    opacity: inherit;
-  }
-  100% {
-    opacity: 0;
-  } /* authentic */
-}
-@-moz-keyframes crawl-fade {
-  0% {
-    opacity: inherit;
-  }
-  84% {
-    opacity: inherit;
-  }
-  100% {
-    opacity: 0;
-  } /* authentic */
-}
-@-o-keyframes crawl-fade {
-  0% {
-    opacity: inherit;
-  }
-  84% {
-    opacity: inherit;
-  }
-  100% {
-    opacity: 0;
-  } /* authentic */
-}
+
 @keyframes crawl-fade {
-  0% {
-    opacity: inherit;
-  }
-  84% {
-    opacity: inherit;
-  }
-  100% {
-    opacity: 0;
-  } /* authentic */
+  0%   { opacity: inherit; }
+  84%  { opacity: inherit; }
+  100% { opacity: 0; }
 }
 
 /* Loc 87s */
@@ -456,42 +247,9 @@ aside {
   background-size: contain;
   opacity: 0;
 
-  -webkit-animation: tilt-bottom-location 8s 96s 1 ease-out forwards; /* Safari 4+ */
-  -moz-animation: tilt-bottom-location 8s 96s 1 ease-out forwards; /* Fx 5+ */
-  -o-animation: tilt-bottom-location 8s 96s 1 ease-out forwards; /* Opera 12+ */
-  animation: tilt-bottom-location 8s 96s 1 ease-out forwards; /* IE 10+, Fx 29+ */
+  animation: var(--anim-tilt-location-bottom);
 }
 
-@-webkit-keyframes tilt-bottom-location {
-  0% {
-    opacity: 1;
-    background-position: center 100vh;
-  }
-  100% {
-    opacity: 1;
-    background-position: center bottom;
-  } /* authentic */
-}
-@-moz-keyframes tilt-bottom-location {
-  0% {
-    opacity: 1;
-    background-position: center 100vh;
-  }
-  100% {
-    opacity: 1;
-    background-position: center bottom;
-  } /* authentic */
-}
-@-o-keyframes tilt-bottom-location {
-  0% {
-    opacity: 1;
-    background-position: center 100vh;
-  }
-  100% {
-    opacity: 1;
-    background-position: center bottom;
-  } /* authentic */
-}
 @keyframes tilt-bottom-location {
   0% {
     opacity: 1;
@@ -500,7 +258,7 @@ aside {
   100% {
     opacity: 1;
     background-position: center bottom;
-  } /* authentic */
+  }
 }
 
 footer {
@@ -512,42 +270,10 @@ footer {
 img {
   opacity: 0;
   transform: translateY(100vh);
-  transform: translateY(-50%) translateX(-25%) scale(1.6);
-  -webkit-animation: tilt-centered-location 8s 96s 1 ease-out forwards; /* Safari 4+ */
-  -moz-animation: tilt-centered-location 8s 96s 1 ease-out forwards; /* Fx 5+ */
-  -o-animation: tilt-centered-location 8s 96s 1 ease-out forwards; /* Opera 12+ */
-  animation: tilt-centered-location 8s 96s 1 ease-out forwards; /* IE 10+, Fx 29+ */
+  transform: translateY(-50%) translateX(-25%) scale(1.6) s;
+  animation: var(--anim-tilt-location-center);
 }
-@-webkit-keyframes tilt-centered-location {
-  0% {
-    opacity: 1;
-    transform: translateY(100vh);
-  }
-  100% {
-    opacity: inherit;
-    transform: translateY(0);
-  } /* authentic */
-}
-@-moz-keyframes tilt-centered-location {
-  0% {
-    opacity: 1;
-    transform: translateY(100vh);
-  }
-  100% {
-    opacity: inherit;
-    transform: translateY(0);
-  } /* authentic */
-}
-@-o-keyframes tilt-centered-location {
-  0% {
-    opacity: 1;
-    transform: translateY(100vh);
-  }
-  100% {
-    opacity: inherit;
-    transform: translateY(0);
-  } /* authentic */
-}
+
 @keyframes tilt-centered-location {
   0% {
     opacity: 1;
@@ -556,5 +282,5 @@ img {
   100% {
     opacity: inherit;
     transform: translateY(0);
-  } /* authentic */
+  }
 }
