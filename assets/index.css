@@ -3,15 +3,17 @@
   --col-txt-shadow: #f9fefa;
   --col-dark: #001823;
 
-  --anim-intro: 5s linear 2s 1 normal forwards running intro;
-  --anim-logo: logo 12s 8.5s 1 ease-out forwards;
+  --anim-intro: 5s linear 2s 1 normal forwards running intro; /* 2-7 */
+  --anim-logo: logo 12s 9s 1 ease-out forwards; /* 9-21 */
   
-  --anim-crawl-scroll: crawl-scroll 74s 18s 1 linear forwards;
-  --anim-txt-fade: crawl-fade 60s 1 linear;
+  --anim-crawl-scroll: crawl-scroll 96s 15s 1 linear forwards; /* 15-87 */
+  --anim-txt-fade: crawl-fade 3s 1 linear forwards;   /* start fade per-paragraph */
   
-  --anim-tilt-bg: tilt-bg 8s 96s 1 ease-out forwards;
-  --anim-tilt-location-bottom: tilt-bottom-location 8s 96s 1 ease-out forwards;
-  --anim-tilt-location-center: tilt-centered-location 8s 96s 1 ease-out forwards;
+  --anim-tilt-bg: tilt-bg 1 ease-in-out forwards; /* 88-96 */
+  --anim-tilt-location-bottom: tilt-bottom-location 1 ease-in-out forwards;
+  --anim-tilt-location-center: tilt-centered-location 1 ease-in-out forwards;
+  --anim-tilt-delay: 88s;
+  --anim-tilt-duration: 8s;
 }
 
 @font-face {
@@ -94,6 +96,8 @@ body {
   height: 100%;
   width: 100%;
   animation: var(--anim-tilt-bg);
+  animation-duration: var(--anim-tilt-duration);
+  animation-delay: var(--anim-tilt-delay);
 }
 @keyframes tilt-bg {
   0%   { background-position: center 0; }
@@ -159,19 +163,18 @@ h2 {
     transform: translateY(-50%) scale(20);
     opacity: 1;
   }
-  75% {
-    transform: translateY(-50%) scale(1);
+  90% {
+    transform: translateY(-50%) scale(.1);
     opacity: 1;
   }
   100% {
     opacity: 0;
-    transform: translateY(-50%) scale(.01);
+    transform: translateY(-50%) scale(.05);
   }
 }
 
-/* Ep 17s-18s / 18s-19s / Ttl 19s-21s / 21s-22s / 1P 23s-32s / 32s-34s / 2P 34s-46s / 46s- 49s / 3P 49s - 62s / 62s- 84s */
 article#crawl {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   transform-origin: 50% 100vh;
   transform: perspective(100vh) rotateX(45deg);
@@ -181,6 +184,11 @@ ul {
   transform: translateY(5%);
   animation: var(--anim-crawl-scroll);
 }
+@keyframes crawl-scroll {
+  0%   { transform: translateY(10%); }
+  100% { transform: translateY(-150%); }
+}
+
 li {
   color: var(--col-txt-shadow);
   font-family: 'Franklin';
@@ -190,45 +198,31 @@ li {
   line-height: 1.3em;
   margin-bottom: 1.1em;
   width: 1;
-}
-
-@keyframes crawl-scroll {
-  0%   { transform: translateY(10%); }
-  100% { transform: translateY(-150%); }
-}
-
-li#title {
-  text-transform: uppercase;
+  animation: var(--anim-txt-fade);
 }
 li#episode, li#title {
   font-weight: bold;
   text-align: center;
 }
 
-li#episode {
-  animation: var(--anim-txt-fade);
-  animation-delay: 18000ms;
-}
-li#title {
-  animation: var(--anim-txt-fade);
-  animation-delay: 20000ms;
-}
-li#aurek {
-  animation: var(--anim-txt-fade);
-  animation-delay: 23433.766233766233ms;
-}
-li#besh {
-  animation: var(--anim-txt-fade);
-  animation-delay: 32s;
-}
-li#cresh {
-  animation: var(--anim-txt-fade);
-  animation-delay: 44s;
-}
+li:nth-child(1)  { animation-delay: 30.0s; }
+li:nth-child(2)  { animation-delay: 33.9s; }
+li:nth-child(3)  { animation-delay: 37.8s; }
+li:nth-child(4)  { animation-delay: 41.7s; }
+li:nth-child(5)  { animation-delay: 45.6s; }
+li:nth-child(6)  { animation-delay: 49.5s; }
+li:nth-child(7)  { animation-delay: 53.4s; }
+li:nth-child(8)  { animation-delay: 57.3s; }
+li:nth-child(9)  { animation-delay: 61.2s; }
+li:nth-child(10) { animation-delay: 65.1s; }
+li:nth-child(11) { animation-delay: 69.0s; }
+li:nth-child(12) { animation-delay: 72.9s; }
+li:nth-child(13) { animation-delay: 76.8s; }
+li:nth-child(14) { animation-delay: 80.7s; }
+li:nth-child(15) { animation-delay: 85.0s; }
 
 @keyframes crawl-fade {
   0%   { opacity: inherit; }
-  84%  { opacity: inherit; }
   100% { opacity: 0; }
 }
 
@@ -250,6 +244,8 @@ aside {
   opacity: 0;
 
   animation: var(--anim-tilt-location-bottom);
+  animation-duration: var(--anim-tilt-duration);
+  animation-delay: var(--anim-tilt-delay);
 }
 
 @keyframes tilt-bottom-location {
@@ -274,6 +270,8 @@ img {
   transform: translateY(100vh);
   transform: translateY(-50%) translateX(-25%) scale(1.6) s;
   animation: var(--anim-tilt-location-center);
+  animation-duration: var(--anim-tilt-duration);
+  animation-delay: var(--anim-tilt-delay);
 }
 
 @keyframes tilt-centered-location {
