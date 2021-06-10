@@ -14,6 +14,8 @@
   --anim-tilt-location-center: tilt-centered-location 1 ease-in-out forwards;
   --anim-tilt-delay: 88s;
   --anim-tilt-duration: 8s;
+
+  --anim-ship-delay: 100s;
 }
 
 @font-face {
@@ -263,15 +265,17 @@ footer {
   width: 100%;
   max-width: 100%;
   text-align: center;
+  opacity: 0;
   animation: var(--anim-tilt-location-center);
   animation-duration: var(--anim-tilt-duration);
   animation-delay: var(--anim-tilt-delay);
 }
 #ship {
-  opacity: 0;
-  animation: ship-jump ease-in;
-  animation-duration: 20s;
-  animation-delay: var(--anim-tilt-delay);
+  transform: translateX(10%) scale(0.25); 
+  animation: ship-jump forwards;
+  animation-timing-function: cubic-bezier(1, 0, 1, 1);
+  animation-duration: 5s;
+  animation-delay: var(--anim-ship-delay);
 }
 
 @keyframes tilt-centered-location {
@@ -279,7 +283,6 @@ footer {
   100% { opacity: inherit; transform: translateY(0); }
 }
 @keyframes ship-jump {
-  0% { opacity: 1; transform: translateX(10%) scale(0.5); }
-  60% { opacity: 1; transform: translateX(10%) scale(0.5); }
-  100% { opacity: 1; transform: translateX(-150%) scale(8) }
+  0% { opacity: 1; transform: translateX(10%) scale(0.25); }
+  100% { opacity: 1; transform: translateX(-200%) scale(10) }
 }
