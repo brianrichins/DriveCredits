@@ -14,8 +14,8 @@
   --anim-tilt-location-center: tilt-centered-location 1 ease-in-out forwards;
   --anim-tilt-delay: 88s;
   --anim-tilt-duration: 8s;
-
   --anim-ship-delay: 100s;
+  --anim-outro-delay: 105s;
 }
 
 @font-face {
@@ -285,4 +285,35 @@ footer {
 @keyframes ship-jump {
   0% { opacity: 1; transform: translateX(10%) scale(0.25); }
   100% { opacity: 1; transform: translateX(-200%) scale(10) }
+}
+
+
+#outro {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom: 0;
+  display:flex;
+  color:white;
+  flex-direction: column;
+  align-items: center;
+  font-size: 3em;
+  font-family: 'Franklin';
+  text-align: center;
+  align-content: center;
+  justify-content: space-evenly;
+  animation: outro forwards;
+  animation-delay: var(--anim-outro-delay);
+  animation-duration: 5s;
+  opacity: 0;
+}
+a {
+  color: var(--col-txt-intro);
+  cursor: pointer;
+}
+
+@keyframes outro {
+  0% { opacity: 0; transform: scale(10); }
+  100% { opacity: 1; }
 }
