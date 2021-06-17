@@ -4,18 +4,19 @@
   --col-dark: #001823;
 
   --anim-intro: 5s linear 2s 1 normal forwards running intro; /* 2-7 */
-  --anim-logo: logo 12s 9s 1 ease-out forwards; /* 9-21 */
+  --anim-logo: logo 12s 9.25s 1 ease-out forwards; /* 9-21 */
   
-  --anim-crawl-scroll: crawl-scroll 96s 15s 1 linear forwards; /* 15-87 */
+  --anim-crawl-scroll: crawl-scroll 94s 15s 1 linear forwards; /* 15-87 */
   --anim-txt-fade: crawl-fade 3s 1 linear forwards;   /* start fade per-paragraph */
   
   --anim-tilt-bg: tilt-bg 1 ease-in-out forwards; /* 88-96 */
   --anim-tilt-location-bottom: tilt-bottom-location 1 ease-in-out forwards;
   --anim-tilt-location-center: tilt-centered-location 1 ease-in-out forwards;
-  --anim-tilt-delay: 88s;
-  --anim-tilt-duration: 8s;
-  --anim-ship-delay: 100s;
-  --anim-outro-delay: 105s;
+  --anim-tilt-delay: 87s;
+  --anim-tilt-duration: 6s;
+  --anim-ship-delay: 91s;
+  --anim-ship-duration: 6s;
+  --anim-outro-delay: 96s;
 }
 
 @font-face {
@@ -271,20 +272,22 @@ footer {
   animation-delay: var(--anim-tilt-delay);
 }
 #ship {
-  transform: translateX(10%) scale(0.25); 
+  transform: translateX(10%) scale(0.25);
   animation: ship-jump forwards;
   animation-timing-function: cubic-bezier(1, 0, 1, 1);
-  animation-duration: 5s;
+  animation-duration: var(--anim-ship-duration);
   animation-delay: var(--anim-ship-delay);
 }
 
 @keyframes tilt-centered-location {
   0% { opacity: 1; transform: translateY(100vh); }
-  100% { opacity: inherit; transform: translateY(0); }
+  99% { opacity: inherit; transform: translateY(0); }
+  100% { opacity: inherit; transform: translateY(0); display: none; }
 }
 @keyframes ship-jump {
   0% { opacity: 1; transform: translateX(10%) scale(0.25); }
-  100% { opacity: 1; transform: translateX(-200%) scale(10) }
+  99% { opacity: 1; transform: translateX(-220%) scale(10) }
+  100% {opacity: 0; transform: translateX(-220%) scale(10); display:none;}
 }
 
 
@@ -305,7 +308,7 @@ footer {
   justify-content: space-evenly;
   animation: outro forwards;
   animation-delay: var(--anim-outro-delay);
-  animation-duration: 5s;
+  animation-duration: 3s;
   opacity: 0;
 }
 a {
@@ -314,6 +317,7 @@ a {
 }
 
 @keyframes outro {
-  0% { opacity: 0; transform: scale(10); }
-  100% { opacity: 1; }
+  0% { opacity: 0; transform: scale(2); }
+  99% { opacity: 1; }
+  100% { opacity: 1; z-index: 10; }
 }
